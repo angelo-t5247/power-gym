@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Power Gym | Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" th:href="@{/index}"> Gym Manager </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    </nav>
+    <div class="container user-img">
+      <img src="images/the-muscle.png">
+    </div>
+    <hr>
+    <div class="container text-center">
+        <h2>Administrator Login</h2>
+    </div>
+    	<div th:if="${message != null}" class="alert alert-danger" th:text="${message}" role="alert"></div>
+    <hr>
+    <div class="container text-center">
+      <div class="col main-section">
+        <form th:action="@{/login-user}" th:object="${user}" method="post">
+          <div class="form-group">
+            <input type="text" class="form-control" th:field="*{username}" placeholder="Enter Username">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" th:field="*{password}" placeholder="Enter Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
